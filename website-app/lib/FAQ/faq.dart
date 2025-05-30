@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../FAQ/faq_item_widget.dart';
 import '../FAQ/faq_item_model.dart';
 import 'package:ieee_website/Themes/website_colors.dart';
-import 'package:ieee_website/Widgets/footer.dart';
+import 'package:ieee_website/widgets/footer.dart';
 
 class FAQ extends StatefulWidget {
   static const String routeName = 'faq';
