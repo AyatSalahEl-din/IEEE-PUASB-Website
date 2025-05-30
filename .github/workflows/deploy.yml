@@ -25,7 +25,7 @@ jobs:
       - name: Build Main Website 
         run: |
           cd website-app
-          flutter build web --release --base-href /ieee-pua-sb-website/
+          flutter build web --release --base-href /IEEE-PUASB-Website/
 
       - name: Install dependencies (Admin Panel) 
         run: |
@@ -35,7 +35,7 @@ jobs:
       - name: Build Admin Panel 
         run: |
           cd admin_app
-          flutter build web --release --base-href /ieee-pua-sb-website/admin/
+          flutter build web --release --base-href /IEEE-PUASB-Website/admin/
 
       - name: Prepare combined deployment directory 
         run: |
