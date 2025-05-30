@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ieee_website/Themes/website_colors.dart';
-import 'package:ieee_website/Widgets/text_gradeint.dart';
+import 'package:ieee_website/widgets/text_gradeint.dart';
 
 class WelcomeSection extends StatelessWidget {
   const WelcomeSection({super.key});
