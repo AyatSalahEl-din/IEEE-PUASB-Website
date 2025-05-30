@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages 
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest 
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Flutter 
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.0' 
+
+      - name: Install dependencies (Main Website) 
+        run: |
+          cd website_app
+          flutter pub get
+
+      - name: Build Main Website 
+        run: |
+          cd website_app
+          flutter build web --release --base-href /ieee-pua-sb-website/
+
+      - name: Install dependencies (Admin Panel) 
+        run: |
+          cd admin_app
+          flutter pub get
+
+      - name: Build Admin Panel 
+        run: |
+          cd admin_app
+          flutter build web --release --base-href /ieee-pua-sb-website/admin/
+
+      - name: Prepare combined deployment directory 
+        run: |
+          mkdir -p deploy_output 
+          cp -r website_app/build/web/* deploy_output/ 
+          mkdir -p deploy_output/admin 
+          cp -r admin_app/build/web/* deploy_output/admin/
+
+      - name: Deploy combined site 
+        uses: peaceiris/actions-gh-pages@v3 
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          publish_dir: ./deploy_output 
