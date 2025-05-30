@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Main Website 
         run: |
-          cd website_app
+          cd website-app
           flutter build web --release --base-href /ieee-pua-sb-website/
 
       - name: Install dependencies (Admin Panel) 
