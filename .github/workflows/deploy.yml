@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies (Main Website) 
         run: |
-          cd website_app
+          cd website-app
           flutter pub get
 
       - name: Build Main Website 
@@ -40,7 +40,7 @@ jobs:
       - name: Prepare combined deployment directory 
         run: |
           mkdir -p deploy_output 
-          cp -r website_app/build/web/* deploy_output/ 
+          cp -r website-app/build/web/* deploy_output/ 
           mkdir -p deploy_output/admin 
           cp -r admin_app/build/web/* deploy_output/admin/
 
